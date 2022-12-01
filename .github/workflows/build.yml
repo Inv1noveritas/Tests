@@ -25,7 +25,8 @@ jobs:
     - name: Test
       run: dotnet test transport/NunitMain
       
-
+    - name: Test2
+      run: dotnet  cake --target=Test --test-run-name=Windows --configuration=Release
       
     - name: Package
       run: dotnet cake --target=Package
