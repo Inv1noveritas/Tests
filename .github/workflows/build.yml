@@ -16,11 +16,10 @@ jobs:
     - name: Install dotnet tools
       run: dotnet tool restore
 
-    - name: Build and Test
-      run: dotnet build transport/NunitMain
-      
     - name: Test
-      run: dotnet cake --target=Test --test-run-name=Windows --configuration=Release
+      run: dotnet build transport/NunitMain/Class1.cs
+      
+
       
     - name: Package
       run: dotnet cake --target=Package
