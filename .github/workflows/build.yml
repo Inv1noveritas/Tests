@@ -41,10 +41,10 @@ jobs:
     - name: Coveralls     
       run: coveralls -t ${{ secrets.coveralls_token }} --root . -E ".*external.*" -E ".*tests.*"
 
-build:
+  build:
     name: Build
     runs-on: windows-latest
-     env:
+    env:
       SONAR_SCANNER_VERSION: 4.6.1.2450 # Find the latest version in the "Windows" link on this page:
                                         # https://docs.sonarcloud.io/advanced-setup/ci-based-analysis/sonarscanner-cli/
       SONAR_SERVER_URL: "https://sonarcloud.io"
