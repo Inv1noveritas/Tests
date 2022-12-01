@@ -1,28 +1,17 @@
-name: Build
+name: dotnet package
+
 on: [push]
 
 jobs:
-  build-windows:
+  build:
+
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup .NET Core SDK 6.0.x
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0.x'
-
-    - name: Install dotnet tools
-      run: dotnet tool restore
-      
-    - name: Build
-      run: dotnet build transport/transport
-      
-    - name: Build2
-      run: dotnet build transport/NunitMain
-      
-    - name: Test
-      run: dotnet test transport/NunitMain
-
-
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 5.0.x
+      - name: Generate coverage report
+        run: dotnet test ./transport/NunitMain
