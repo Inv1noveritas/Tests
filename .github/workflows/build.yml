@@ -22,27 +22,7 @@ jobs:
     - name: Build2
       run: dotnet build transport/NunitMain
       
-    - name: Test2
-      run: dotnet  cake --target=Test --test-run-name=Windows --configuration=Release
-      
-    - name: Package
-      run: dotnet cake --target=Package
-      
     - name: Test
       run: dotnet test transport/NunitMain
-
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: Package
-        path: package
-
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: Test results (Windows)
-        path: test-results
-      # Use always() to always run this step to publish test results when there are test failures
-      if: ${{ always() }}\
 
 
