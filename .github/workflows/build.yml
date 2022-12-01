@@ -19,11 +19,11 @@ jobs:
     - name: Build
       run: dotnet build transport/transport
       
-    - name: Build
+    - name: Build2
       run: dotnet build transport/NunitMain
 
     - name: Test
-      run: dotnet test transport/NunitMain/Class1.cs
+      run: dotnet test transport/NunitMain
       
 
       
