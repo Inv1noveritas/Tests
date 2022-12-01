@@ -15,6 +15,12 @@ jobs:
 
     - name: Install dotnet tools
       run: dotnet tool restore
+      
+    - name: Build
+      run: dotnet build transport/transport
+      
+    - name: Build
+      run: dotnet build transport/NunitMain
 
     - name: Test
       run: dotnet test transport/NunitMain/Class1.cs
