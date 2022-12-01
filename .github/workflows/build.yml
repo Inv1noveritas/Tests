@@ -21,15 +21,15 @@ jobs:
       
     - name: Build2
       run: dotnet build transport/NunitMain
-
-    - name: Test
-      run: dotnet test transport/NunitMain
       
     - name: Test2
       run: dotnet  cake --target=Test --test-run-name=Windows --configuration=Release
       
     - name: Package
       run: dotnet cake --target=Package
+      
+    - name: Test
+      run: dotnet test transport/NunitMain
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
